@@ -1,0 +1,6 @@
+@Crypto_Data_Pipeline_HostAddress = http://localhost:5264
+
+GET {{Crypto_Data_Pipeline_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
