@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Crypto Data Pipeline")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6d2bed29f8e4d612e754e2e77b60a7c14e9feca")]
 [assembly: System.Reflection.AssemblyProductAttribute("Crypto Data Pipeline")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Crypto Data Pipeline")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
