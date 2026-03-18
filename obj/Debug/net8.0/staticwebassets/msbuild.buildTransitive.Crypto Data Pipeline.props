@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Crypto Data Pipeline.props" />
-</Project>
