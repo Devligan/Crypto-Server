@@ -10,7 +10,7 @@ obj/
 # Environment and secrets
 appsettings.Development.json
 appsettings.json
-
+Admin.pem
 *.env
 
 # OS files
