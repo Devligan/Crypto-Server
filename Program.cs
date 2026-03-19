@@ -14,6 +14,15 @@ builder.Services.AddSwaggerGen(options =>
     options.SupportNonNullableReferenceTypes();
     options.UseInlineDefinitionsForEnums();
 });
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddScoped<CoinGeckoService>();
 builder.Services.AddHttpClient<CoinGeckoService>();
@@ -32,8 +41,7 @@ if (app.Environment.IsDevelopment())
         options.RoutePrefix = string.Empty;
     });
 }
-
+app.UseCors();
 app.UseHttpsRedirection();
 app.MapControllers();
-
 app.Run();
