@@ -1,4 +1,4 @@
-const API = 'http://ec2-18-116-170-130.us-east-2.compute.amazonaws.com:5264/api/crypto';
+const API = 'https://cryptoterminal.duckdns.org';
 
 const select = document.getElementById('symbol-select');
 const statusEl = document.getElementById('status');
