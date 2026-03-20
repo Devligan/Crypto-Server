@@ -12,7 +12,7 @@ let currentRange = 'all';
 let showVolume = false;
 let allData = [];
 
-// ── Symbol loader ──────────────────────────────────────────
+// Symbol loader
 async function loadSymbols() {
   try {
     const res = await fetch(`${API}/symbols`);
@@ -28,7 +28,7 @@ async function loadSymbols() {
   }
 }
 
-// ── Load full history for a symbol ────────────────────────
+// Load full history for a symbol
 async function loadSymbol(symbol) {
   currentSymbol = symbol;
   setChartLoading();
@@ -42,7 +42,7 @@ async function loadSymbol(symbol) {
   }
 }
 
-// ── Apply current range filter and re-render ──────────────
+// Apply current range filter and re-render
 function applyRange() {
   let data = allData;
 
@@ -62,7 +62,7 @@ function applyRange() {
   statsEl.style.display = 'grid';
 }
 
-// ── Stats bar ──────────────────────────────────────────────
+// Stats bar
 function renderStats(data) {
   const first  = data[0].close;
   const latest = data[data.length - 1].close;
@@ -87,7 +87,7 @@ function renderStats(data) {
     showVolume ? `// VOLUME — ${currentSymbol}` : `// PRICE HISTORY — ${currentSymbol}`;
 }
 
-// ── Chart renderer ─────────────────────────────────────────
+// Chart renderer
 function renderChart(data) {
   const canvas = document.createElement('canvas');
   canvas.height = 320;
@@ -159,7 +159,7 @@ function renderChart(data) {
   ctx.stroke();
 }
 
-// ── Helpers ────────────────────────────────────────────────
+// Helpers
 function setChartLoading() {
   document.getElementById('chart-area').innerHTML = '<div class="loading">FETCHING DATA...</div>';
   statsEl.style.display = 'none';
@@ -183,7 +183,7 @@ function fmtVol(n) {
   return '$' + n.toLocaleString();
 }
 
-// ── Event listeners ────────────────────────────────────────
+// Event listeners
 select.addEventListener('change', e => loadSymbol(e.target.value));
 
 document.querySelectorAll('.range-btn').forEach(btn => {
