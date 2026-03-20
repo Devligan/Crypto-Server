@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Crypto Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">CRYPTO<span>_</span>TERMINAL</div>
+  <nav>
+    <a href="index.html" class="nav-link">DASHBOARD</a>
+    <a href="about.html" class="nav-link active">ABOUT</a>
+    <a href="docs.html" class="nav-link">API DOCS</a>
+  </nav>
+</header>
+
+<main class="content-page">
+
+  <div class="page-header">
+    <div class="page-tag">// ABOUT</div>
+    <h1>What is Crypto Terminal?</h1>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-block">
+      <h2>// THE PROJECT</h2>
+      <p>Crypto Terminal is a personal full-stack project built to work around the limitations of CoinGecko's free tier API, which only provides up to 90 days of historical data per request.</p>
+      <p>By running a scheduled data pipeline on a persistent server, the project continuously collects and stores daily closing price and volume data, building up a historical dataset that grows over time. This data is served through a custom REST API and visualized through this dashboard.</p>
+      <p>The project was built entirely from scratch, covering backend development, database design, cloud deployment, and frontend visualization.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>// THE STACK</h2>
+      <div class="stack-list">
+        <div class="stack-item">
+          <span class="stack-tag">BACKEND</span>
+          <span>ASP.NET Core 8 REST API written in C#</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-tag">DATABASE</span>
+          <span>PostgreSQL with Entity Framework Core</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-tag">HOSTING</span>
+          <span>AWS EC2 t3.micro running Ubuntu 24.04</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-tag">DATA</span>
+          <span>CoinGecko API for daily price ingestion</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-tag">FRONTEND</span>
+          <span>Vanilla HTML, CSS, and JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h2>// HOW IT WORKS</h2>
+      <p>On startup, the server automatically backfills any missing price data for all tracked assets. Every day at midnight UTC, it fetches the latest closing price and trading volume for each coin and stores it in the PostgreSQL database.</p>
+      <p>The REST API exposes endpoints for querying full history, the latest data point, and custom date ranges. All data served by the API powers this dashboard in real time.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>// TRACKED ASSETS</h2>
+      <div class="asset-list">
+        <span class="asset-tag">BTC</span>
+        <span class="asset-tag">ETH</span>
+        <span class="asset-tag">SOL</span>
+        <span class="asset-tag">XRP</span>
+        <span class="asset-tag">DOGE</span>
+        <span class="asset-tag">ADA</span>
+        <span class="asset-tag">USDC</span>
+      </div>
+    </div>
+
+    <div class="content-block attribution">
+      <h2>// DATA ATTRIBUTION</h2>
+      <p>All cryptocurrency market data is sourced from <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a> via their free public API. This project is non-commercial and is built purely for educational and portfolio purposes.</p>
+      <a href="https://www.coingecko.com" target="_blank" rel="noopener" class="coingecko-badge">
+        Powered by CoinGecko API
+      </a>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

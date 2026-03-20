@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">CRYPTO<span>_</span>TERMINAL</div>
+  <nav>
+    <a href="index.html" class="nav-link active">DASHBOARD</a>
+    <a href="about.html" class="nav-link">ABOUT</a>
+    <a href="docs.html" class="nav-link">API DOCS</a>
+  </nav>
+</header>
+
+<main>
+  <div class="controls">
+    <label for="symbol-select">// ASSET</label>
+    <select id="symbol-select">
+      <option value="">-- LOADING --</option>
+    </select>
+
+    <div class="divider"></div>
+
+    <label>// RANGE</label>
+    <div class="range-buttons">
+      <button class="range-btn active" data-range="all">ALL</button>
+      <button class="range-btn" data-range="90">90D</button>
+      <button class="range-btn" data-range="30">30D</button>
+      <button class="range-btn" data-range="7">7D</button>
+      <button class="range-btn" data-range="custom">CUSTOM</button>
+    </div>
+
+    <div class="date-inputs" id="date-inputs" style="display:none">
+      <input type="date" id="date-from" />
+      <span>→</span>
+      <input type="date" id="date-to" />
+      <button class="apply-btn" id="apply-range">APPLY</button>
+    </div>
+
+    <div class="status" id="status">CONNECTING...</div>
+  </div>
+
+  <div id="stats" class="stat-grid" style="display:none">
+    <div class="stat-card">
+      <div class="stat-label">Latest Close</div>
+      <div class="stat-value" id="stat-latest">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Period Change</div>
+      <div class="stat-value" id="stat-change">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Period High</div>
+      <div class="stat-value" id="stat-high">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Period Low</div>
+      <div class="stat-value" id="stat-low">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Daily Volume</div>
+      <div class="stat-value" id="stat-avgvol">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Volume</div>
+      <div class="stat-value" id="stat-totvol">--</div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-header">
+      <div class="chart-title" id="chart-title">// PRICE HISTORY</div>
+      <div class="chart-toggle">
+        <button class="toggle-btn active" id="btn-price">PRICE</button>
+        <button class="toggle-btn" id="btn-volume">VOLUME</button>
+      </div>
+    </div>
+    <div id="chart-area">
+      <div class="empty">SELECT AN ASSET TO BEGIN</div>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

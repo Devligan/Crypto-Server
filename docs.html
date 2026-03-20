@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Docs — Crypto Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">CRYPTO<span>_</span>TERMINAL</div>
+  <nav>
+    <a href="index.html" class="nav-link">DASHBOARD</a>
+    <a href="about.html" class="nav-link">ABOUT</a>
+    <a href="docs.html" class="nav-link active">API DOCS</a>
+  </nav>
+</header>
+
+<main class="content-page">
+
+  <div class="page-header">
+    <div class="page-tag">// API REFERENCE</div>
+    <h1>REST API Documentation</h1>
+    <p class="page-sub">Base URL: <code>http://ec2-18-116-170-130.us-east-2.compute.amazonaws.com:5264/api/crypto</code></p>
+  </div>
+
+  <div class="content-grid">
+
+    <div class="content-block">
+      <h2>// OVERVIEW</h2>
+      <p>All endpoints return JSON. No authentication is required. All dates use the format <code>YYYY-MM-DD</code>. Price data is denominated in USD.</p>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/symbols</span>
+      </div>
+      <p>Returns a list of all available asset symbols.</p>
+      <div class="code-block">
+        <div class="code-label">RESPONSE</div>
+        <pre>["ADA", "BTC", "DOGE", "ETH", "SOL", "USDC", "XRP"]</pre>
+      </div>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/{symbol}</span>
+      </div>
+      <p>Returns the full price history for a given symbol, ordered by date ascending.</p>
+      <div class="code-block">
+        <div class="code-label">EXAMPLE</div>
+        <pre>/btc</pre>
+      </div>
+      <div class="code-block">
+        <div class="code-label">RESPONSE</div>
+        <pre>[
+  {
+    "id": 1,
+    "symbol": "BTC",
+    "close": 88103.86,
+    "volume": 51932451056.50,
+    "date": "2025-12-20"
+  },
+  ...
+]</pre>
+      </div>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/{symbol}/latest</span>
+      </div>
+      <p>Returns the most recent data point for a given symbol.</p>
+      <div class="code-block">
+        <div class="code-label">EXAMPLE</div>
+        <pre>/btc/latest</pre>
+      </div>
+      <div class="code-block">
+        <div class="code-label">RESPONSE</div>
+        <pre>{
+  "id": 90,
+  "symbol": "BTC",
+  "close": 70086.16,
+  "volume": 46150658956.34,
+  "date": "2026-03-19"
+}</pre>
+      </div>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/{symbol}/before</span>
+      </div>
+      <p>Returns all data points for a symbol up to and including the specified date.</p>
+      <div class="param-list">
+        <div class="param"><span class="param-name">to</span><span class="param-type">date</span><span>Required. Upper bound date (YYYY-MM-DD).</span></div>
+      </div>
+      <div class="code-block">
+        <div class="code-label">EXAMPLE</div>
+        <pre>/btc/before?to=2026-02-01</pre>
+      </div>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/{symbol}/after</span>
+      </div>
+      <p>Returns all data points for a symbol from the specified date onwards.</p>
+      <div class="param-list">
+        <div class="param"><span class="param-name">from</span><span class="param-type">date</span><span>Required. Lower bound date (YYYY-MM-DD).</span></div>
+      </div>
+      <div class="code-block">
+        <div class="code-label">EXAMPLE</div>
+        <pre>/btc/after?from=2026-01-01</pre>
+      </div>
+    </div>
+
+    <div class="endpoint-block">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="path">/{symbol}/between</span>
+      </div>
+      <p>Returns all data points for a symbol within a date range, inclusive.</p>
+      <div class="param-list">
+        <div class="param"><span class="param-name">from</span><span class="param-type">date</span><span>Required. Start date (YYYY-MM-DD).</span></div>
+        <div class="param"><span class="param-name">to</span><span class="param-type">date</span><span>Required. End date (YYYY-MM-DD).</span></div>
+      </div>
+      <div class="code-block">
+        <div class="code-label">EXAMPLE</div>
+        <pre>/btc/between?from=2026-01-01&to=2026-02-01</pre>
+      </div>
+    </div>
+
+    <div class="content-block attribution">
+      <h2>// DATA ATTRIBUTION</h2>
+      <p>All market data served by this API is sourced from <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a>. This API is non-commercial and intended for personal and educational use only.</p>
+      <a href="https://www.coingecko.com" target="_blank" rel="noopener" class="coingecko-badge">
+        Powered by CoinGecko API
+      </a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
