@@ -1,4 +1,4 @@
-const API = 'https://cryptoterminal.duckdns.org';
+const API = 'https://cryptoterminal.duckdns.org/api/Crypto';
 
 const select = document.getElementById('symbol-select');
 const statusEl = document.getElementById('status');
